@@ -1,0 +1,35 @@
+#slideContainer {
+    width:900px;
+    height:675px;
+    margin:0 auto;
+}
+
+#slidingImage {
+    cursor:pointer;
+    width:900px;
+    height:675px;
+}
+
+#bubbles {
+    border:0px solid black;
+/*    width:60px;*/
+    margin:0 auto;
+    margin-top:1em;
+}
+
+.bubble {
+    width:16px;
+    height:16px;
+    border:2px solid #BABABA;
+    border-radius:16px;
+    box-shadow:0px 0px 1px rgba(0,0,0,0.5);
+    background:#F5F5F5;
+    display:inline;
+    float:left;
+    margin:0 5px;
+    cursor:pointer;  
+}
+
+.active {
+    background:#9597A2;
+}
