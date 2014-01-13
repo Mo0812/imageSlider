@@ -29,6 +29,11 @@ if(options.fadeOutTime!=null)
 else
     fadeOutTime=500;
 
+if(options.infoTextEnabled!=null)
+    var infoTextEnabled=options.infoTextEnabled;
+else
+    infoTextEnabled=false;
+
 function changeLogo() {
     var el=$("#slidingImage");
     var actId=parseInt(el.attr("data-actid"));
@@ -77,7 +82,7 @@ function hasInfoText(imageId) {
 }
 
 function toggleInfoText(imageId) {
-    if(hasInfoText(imageId)) {
+    if(hasInfoText(imageId) && infoTextEnabled) {
            $("#infoText").find("p").text(images[imageId]['text']);
            $("#infoText").show();
        }

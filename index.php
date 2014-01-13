@@ -26,7 +26,8 @@
                 "fadeInTime": 500,
                 "fadeInAnimation": "",
                 "fadeOutTime": 500,
-                "fadeOutAnimation": ""
+                "fadeOutAnimation": "",
+                "infoTextEnabled": false
             }
         </script>
         <script src="scripts/slider.js"></script>
