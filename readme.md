@@ -1,6 +1,6 @@
 # imageSlider
 ### What it's about?
-imageSlider is a very simple, easy to use and fast imageSlider for every website. Just follow the instructions below and you learn how to copy it into your website.
+imageSlider is a very simple, easy to use and fast imageSlider for every website. Just follow the [instructions](#installation) below and you learn how to copy it into your website.
 
 ### Features
 imageSlider:
