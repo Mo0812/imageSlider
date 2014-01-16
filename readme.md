@@ -14,7 +14,10 @@
 Just take a look at the imageSlider right [here](http://imageslider.mck-web.de).
 
 ### toDo List
-Coming soon.
+- [x] add a slice-style navigation
+- [ ] add a preview image navigation
+- [ ] add more sliding animations
+- [ ] ...
 
 Theres still a lot to do. If you had found issues tell me please!
 
