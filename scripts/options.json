@@ -1,0 +1,13 @@
+options=
+{
+    "imgx": 900,
+    "imgy": 675,
+    "delay": 10000,
+    "fadeInTime": 500,
+    "fadeInAnimation": "",
+    "fadeOutTime": 500,
+    "fadeOutAnimation": "",
+    "infoTextEnabled": true,
+    "linkClickEnabled": false,
+    "linkUrlTotalEncoded": true
+}

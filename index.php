@@ -8,28 +8,19 @@
             var images=[
                 {
                     "path": "imageFolder/1.jpg",
-                    "text": "Modern Popart"
+                    "text": "Imageslider",
+                    "link": "http://www.mck-web.de"
                 },
                 {
                     "path": "imageFolder/3.jpg"
                 },
                 {
-                    "path": "imageFolder/4.jpg",
-                    "text": "Paris"
+                    "path": "imageFolder/4.jpg"
                 }
             ];
-            
-            var options={
-                "imgx": 600,
-                "imgy": 475,
-                "delay": 10000,
-                "fadeInTime": 500,
-                "fadeInAnimation": "",
-                "fadeOutTime": 500,
-                "fadeOutAnimation": "",
-                "infoTextEnabled": false
-            }
+                
         </script>
+        <script src="scripts/options.json"></script>
         <script src="scripts/slider.js"></script>
         
     </head>
@@ -38,7 +29,7 @@
 
         <div id="slideContainer">
             <img id="slidingImage" border="0" src="" data-actid="">
-            <div id="infoText"><p></p></div>
+            <div id="infoText"><p></p><a id="linkReferer"></a></div>
             <div id="bubbles">
             </div>
         </div>

@@ -34,18 +34,24 @@ if(options.infoTextEnabled!=null)
 else
     infoTextEnabled=false;
 
+if(options.linkClickEnabled!=null)
+    var linkClickEnabled=options.linkClickEnabled;
+else
+    linkClickEnabled=false;
+
 function changeLogo() {
     var el=$("#slidingImage");
     var actId=parseInt(el.attr("data-actid"));
     var nextId=actId+1;
     
     if(nextId>=arrLen)
-        nextId=0;
+        nextId=0;   
     
     el.fadeOut(fadeOutTime,function() {
        el.attr("src",images[nextId]['path']);
        el.attr("data-actid",nextId).fadeIn(fadeInTime);
        toggleInfoText(nextId);
+       toggleLink(nextId);
     });
     
     $(".bubble").each(function() {
@@ -62,7 +68,10 @@ function showLogo(logoId) {
 
     var el=$("#slidingImage");
         el.fadeOut(fadeOutTime,function(){
-                el.attr("src",images[logoId]['path']).fadeIn(fadeInTime);
+                el.attr("src",images[logoId]['path']);
+                el.attr("data-actid",logoId).fadeIn(fadeInTime);
+                toggleInfoText(logoId);
+                toggleLink(logoId);
             });
 
 
@@ -91,6 +100,38 @@ function toggleInfoText(imageId) {
        }
 }
 
+function hasLink(imageId) {
+    if(images[imageId]['link']==null) {
+        return false;
+    } else
+        return true;
+}
+
+function openLink(imageId) {
+    if(hasLink(imageId)) {
+        location.href=images[imageId]['link'];
+     } else {
+        changeLogo();
+     }
+}
+
+function toggleLink(imageId) {
+    if(hasLink(imageId)) {
+        $("#infoText").find("a#linkReferer").attr("href",images[imageId]['link']).text(cutLink(images[imageId]['link']));
+    }
+    else {
+        $("#infoText").find("a#linkReferer").text("");
+    }
+}
+
+function cutLink(link) {
+    link=String(link);
+    var linkArr=link.split('/');
+    return linkArr[0]+"//"+linkArr[2];
+    
+    
+}
+
 $(document).ready(function() {
     
         //INITALIZE
@@ -105,6 +146,7 @@ $(document).ready(function() {
                 $("#slidingImage").attr("data-actid",i);
                 $("#slidingImage").attr("src",images[i]['path']);
                 toggleInfoText(i);
+                toggleLink(i);
             }
             else
                 $("#bubbles").append('<p class="bubble" data-id="'+i+'" ></p>');
@@ -114,17 +156,21 @@ $(document).ready(function() {
         
         //EVENTHANDLING
         $("#slidingImage").click(function(e) {
-            changeLogo();
-        });  
+            if(linkClickEnabled) {
+                var imageId=$(this).attr("data-actid");
+                openLink(imageId);
+            } else
+                changeLogo();
+        }); 
 
         $(".bubble").click(function (e) {
             var logoId=$(this).data("id");
             showLogo(logoId);
-        })
+        });
         
         //TIMERSETTINGS
         var timer=setInterval(changeLogo,delay);
-        $('#slidingImage').hover(function(ev){
+        $('#slideContainer').hover(function(ev){
             clearInterval(timer);
         }, function(ev){
             timer = setInterval( changeLogo, delay);
