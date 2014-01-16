@@ -41,7 +41,7 @@
     text-decoration:underline;
 }
 
-#bubbles {
+#navigation {
     border:0px solid black;
 /*    width:60px;*/
     margin:0 auto;
@@ -59,6 +59,19 @@
     float:left;
     margin:0 5px;
     cursor:pointer;  
+}
+
+.slice {
+    width:16px;
+    height:1em;
+    border:0;
+    box-shadow:0px 0px 1px rgba(0,0,0,0.5);
+    background:#F5F5F5;
+    display:inline;
+    float:left;
+    margin:0;
+    padding:0;
+    cursor:pointer;
 }
 
 .active {

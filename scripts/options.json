@@ -1,13 +1,14 @@
 options=
 {
-    "imgx": 900,
-    "imgy": 675,
-    "delay": 10000,
-    "fadeInTime": 500,
-    "fadeInAnimation": "",
-    "fadeOutTime": 500,
-    "fadeOutAnimation": "",
-    "infoTextEnabled": true,
-    "linkClickEnabled": false,
-    "linkUrlTotalEncoded": true
+    "imgx": 900,                    //width of the Imageslider
+    "imgy": 675,                    //height of the Imageslider
+    "delay": 10000,                 //duration for a image to be displayed
+    "fadeInTime": 500,              //duration of the animation at the beginning
+    "fadeInAnimation": "",          //no function
+    "fadeOutTime": 500,             //duration of the animation at the end
+    "fadeOutAnimation": "",         //no function
+    "infoTextEnabled": true,        //displays the text under a picture, if something is set (true-false)
+    "linkClickEnabled": false,      //allows that a click on the picture opens the actual link (true-false)
+    "linkTotalEnabled": true,       //shows the link under the text in the infobox. Is affected by infoTextEnabled (true-false)
+    "navigationType": "slice"     //sets the type of the navigation (bubble-slides)
 }

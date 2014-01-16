@@ -15,7 +15,8 @@
                     "path": "imageFolder/3.jpg"
                 },
                 {
-                    "path": "imageFolder/4.jpg"
+                    "path": "imageFolder/4.jpg",
+                    "text": "Paris"
                 }
             ];
                 
@@ -30,7 +31,7 @@
         <div id="slideContainer">
             <img id="slidingImage" border="0" src="" data-actid="">
             <div id="infoText"><p></p><a id="linkReferer"></a></div>
-            <div id="bubbles">
+            <div id="navigation">
             </div>
         </div>
                                 
