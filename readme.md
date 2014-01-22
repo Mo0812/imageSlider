@@ -2,7 +2,7 @@
 ### What it's about?
 [imageSlider](http://imageslider.mck-web.de) is a very simple, easy to use and fast imageslider for every website. Just follow the [instructions](#installation) below and you learn how to install it at your website.
 
-![Preview](https://github.com/ZoC111/imageSlider/tree/master/imageFolder/imageslider_preview.jpg)
+![Preview](https://github.com/ZoC111/imageSlider/raw/master/imageFolder/imageslider_preview.png "Preview")
 
 ### Features
 * slides a various number of your images in one frame all around
