@@ -1,7 +1,7 @@
 options=
 {
-    "imgx": 900,                    //width of the Imageslider
-    "imgy": 675,                    //height of the Imageslider
+    "imgx": 800,                    //width of the Imageslider
+    "imgy": 600,                    //height of the Imageslider
     "delay": 10000,                 //duration for a image to be displayed
     "fadeInTime": 500,              //duration of the animation at the beginning
     "fadeInAnimation": "",          //no function
