@@ -11,6 +11,7 @@
 * can add a text and a shown link in every single slide if you want
 * works totaly on JavaScript (JQuery)
 * everything what's important got an option! So you can change: the speed of sliding, the animation times, the type of navigation, the reaction on links and additional texts
+* swipe gestures for touch devices
 
 ###Demo
 Just take a look at the imageslider right [here](http://imageslider.mck-web.de).
