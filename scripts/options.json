@@ -2,7 +2,7 @@ options=
 {
     "imgx": 800,                    //width of the Imageslider
     "imgy": 600,                    //height of the Imageslider
-    "delay": 10000,                 //duration for a image to be displayed
+    "delay": 2000,                 //duration for a image to be displayed
     "fadeInTime": 500,              //duration of the animation at the beginning
     "fadeInAnimation": "",          //no function
     "fadeOutTime": 500,             //duration of the animation at the end
@@ -10,5 +10,7 @@ options=
     "infoTextEnabled": true,        //displays the text under a picture, if something is set (true-false)
     "linkClickEnabled": false,      //allows that a click on the picture opens the actual link (true-false)
     "linkTotalEnabled": true,       //shows the link under the text in the infobox. Is affected by infoTextEnabled (true-false)
-    "navigationType": "slice"     //sets the type of the navigation (bubble-slides)
+    "navigationType": "slice",      //sets the type of the navigation (bubble-slides)
+    "overallMode"   : "normal",     //sets the mode of imageSlider (normal-background)
+    "autoResize"    : true          //
 }

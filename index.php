@@ -21,7 +21,6 @@
             ];
                 
         </script>
-        <script src="scripts/touchswipe.js"></script>
         <script src="scripts/options.json"></script>
         <script src="scripts/slider.js"></script>
         
@@ -29,12 +28,14 @@
     
     <body>	
 
-        <div id="slideContainer">
-            <img id="slidingImage" border="0" src="" data-actid="">
-            <div id="infoText"><p></p><a id="linkReferer"></a></div>
-            <div id="navigation">
+            <div id="slideContainer">
+                <div id="slideWrapper">
+                    <img id="slidingImage" border="0" src="" data-actid="">
+                    <div id="infoText"><p></p><a id="linkReferer"></a></div>
+                </div>
+                <div id="navigation">
+                </div>
             </div>
-        </div>
                                 
     </body>	
 </html>

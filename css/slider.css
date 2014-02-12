@@ -5,10 +5,15 @@
     position:relative;
 }
 
+#slideWrapper {
+    overflow:hidden;
+    position:relative;
+    
+}
+
 #slidingImage {
     cursor:pointer;
-    width:900px;
-    height:675px;
+    position:absolute;
 }
 
 #infoText {
@@ -72,6 +77,10 @@
     margin:0;
     padding:0;
     cursor:pointer;
+}
+
+.button {
+    
 }
 
 .active {

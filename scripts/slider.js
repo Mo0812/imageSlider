@@ -1,3 +1,4 @@
+document.write('<script type="text/javascript" src="scripts/touchswipe.js"></script>');
 
 
 //var imgArray=["imageFolder/1.jpg","imageFolder/3.jpg","imageFolder/4.jpg"];
@@ -49,6 +50,18 @@ if(options.navigationType!=null)
 else
     navigationType="bubbles";
 
+if(options.overallMode!=null)
+    var overallMode=options.overallMode;
+else
+    overallMode="normal";
+
+if(options.autoResize!=null)
+    var autoResize=options.autoResize;
+else
+    autoResize=false;
+
+var ratio=imgx/imgy
+
 function changeLogo() {
     var el=$("#slidingImage");
     var actId=parseInt(el.attr("data-actid"));
@@ -58,8 +71,16 @@ function changeLogo() {
         nextId=0;   
     
     el.fadeOut(fadeOutTime,function() {
+        
        el.attr("src",images[nextId]['path']);
-       el.attr("data-actid",nextId).fadeIn(fadeInTime);
+       el.attr("data-actid",nextId);
+       el.load(function() { //WAITS FOR LOADING THE IMAGE
+            captureImage(el,function() {
+                el.fadeIn(fadeInTime);
+            });  
+       });
+       
+       
        toggleInfoText(nextId);
        toggleLink(nextId);
     });
@@ -74,13 +95,73 @@ function showLogo(logoId) {
     var el=$("#slidingImage");
         el.fadeOut(fadeOutTime,function(){
                 el.attr("src",images[logoId]['path']);
-                el.attr("data-actid",logoId).fadeIn(fadeInTime);
+                el.attr("data-actid",logoId);
+                el.load(function() { //WAITS FOR LOADING THE IMAGE
+                    captureImage(el,function() {
+                        el.fadeIn(fadeInTime);
+                    });  
+                });
+                
                 toggleInfoText(logoId);
                 toggleLink(logoId);
             });
 
 
     toggleMenuElement(logoId);
+}
+
+function lastLogo() {
+    var el=$("#slidingImage");
+    var actId=parseInt(el.attr("data-actid"));
+    var nextId=actId-1;
+    
+    if(nextId<0)
+        nextId=arrLen-1;   
+    
+    el.fadeOut(fadeOutTime,function() {
+       el.attr("src",images[nextId]['path']);
+       el.attr("data-actid",nextId);
+       el.load(function() { //WAITS FOR LOADING THE IMAGE
+            captureImage(el,function() {
+                el.fadeIn(fadeInTime);
+            });  
+        });
+                
+       toggleInfoText(nextId);
+       toggleLink(nextId);
+    });
+    
+    toggleMenuElement(nextId);
+    
+}
+
+function captureImage(el,fnCallback) {
+    var elx=0;
+    var ely=0;
+    
+    elx=el.width();
+    ely=el.height();
+    var elratio=elx/ely;
+
+    if(ratio<=elratio && elratio>=1) {
+        el.css("width","");
+        el.css("height",imgy);
+
+        var diffx=(el.width()-imgx)/2;
+        var diffy=0;
+        el.css("margin-top",diffy);
+        el.css("margin-left","-"+diffx);
+    } else if(ratio>elratio && elratio>=1) {
+        el.css("width",imgx);
+        el.css("height","");
+
+        diffx=0;
+        diffy=(el.height()-imgy)/2;
+        el.css("margin-top","-"+diffy);
+        el.css("margin-left",diffx);
+    }
+    if(fnCallback)
+        fnCallback();
 }
 
 function hasInfoText(imageId) {
@@ -142,30 +223,20 @@ function toggleMenuElement(imageId) {
 } 
 
 function initializeMenu() {
-    if(navigationType=="slice") {
-        $("#navigation").css("width","100%");
-        $("#navigation").css("margin","0");
-        $(".slice").css("width",(imgx/3)+"px");
-    }
-    else if(navigationType=="bubble") {
-        $("#navigation").css("width",arrLen*30+"px");
-    }
-}
-
-$(document).ready(function() {
-    
-        //INITALIZE
-        $("#slideContainer").css("width",imgx);
-        $("#slideContainer").css("height",imgy);
-        $("#slidingImage").css("width",imgx);
-        $("#slidingImage").css("height",imgy);
-        
+    if(overallMode=="normal") {
         for(var i=0;i<arrLen;i++) {
             if(i==0) {
                 var menuEl=$('<p class="menu active" data-id="'+i+'" ></p>').appendTo("#navigation");
                 menuEl.addClass(navigationType);
+               
                 $("#slidingImage").attr("data-actid",i);
                 $("#slidingImage").attr("src",images[i]['path']);
+                $("#slidingImage").load(function() { //WAITS FOR LOADING THE IMAGE
+                    captureImage($(this),function() {
+                        $(this).fadeIn(fadeInTime);
+                    });  
+                });
+                //captureImage(el);
                 toggleInfoText(i);
                 toggleLink(i);
             }
@@ -174,6 +245,39 @@ $(document).ready(function() {
                 menuEl.addClass(navigationType);
             }
             
+        }
+        
+        if(navigationType=="slice") {
+            $("#navigation").css("width","100%");
+            $("#navigation").css("margin","0");
+            $(".slice").css("width",(imgx/arrLen)+"px");
+        }
+        else if(navigationType=="bubble") {
+            $("#navigation").css("width",arrLen*30+"px");
+        }
+        else if(navigationType=="button") {
+
+        }
+    } else if(overallMode=="background") {
+        $("#navigation").hide();
+        $("body").css("margin","0");
+        $("body").css("padding","0");
+    }
+}
+
+$(document).ready(function() {
+    
+        //INITALIZE
+        if(overallMode=="normal") {
+            $("#slideContainer").css("width",imgx);
+            $("#slideContainer").css("height",imgy);
+            $("#slideWrapper").css("width",imgx);
+            $("#slideWrapper").css("height",imgy);
+        } else {
+            $("#slideContainer").css("width","100%");
+            $("#slideContainer").css("height","100%");
+            $("#slideWrapper").css("width","100%");
+            $("#slideWrapper").css("height","100%");
         }
         
         initializeMenu();
@@ -201,7 +305,7 @@ $(document).ready(function() {
         });
         
         $("#slideContainer").touchwipe({
-            wipeLeft: function() { changeLogo(); },
+            wipeLeft: function() {changeLogo();},
             min_move_x: 20,
             min_move_y: 20,
             preventDefaultEvents: false
