@@ -254,7 +254,7 @@ function initializeMenu() {
             $("#navigation").css("margin","0");
             $(".slice").css("width",(imgx/arrLen)+"px");
         }
-        else if(navigationType=="bubble") {
+        else if(navigationType=="bubble" || navigationType=="modernBubble") {
             $("#navigation").css("width",arrLen*30+"px");
         }
         else if(navigationType=="button") {
@@ -328,7 +328,7 @@ $(document).ready(function() {
         });
         
         //TIMERSETTINGS
-        if(!navigationType=="button") {
+        if(navigationType!="button") {
             var timer=setInterval(changeLogo,delay);
             $('#slideContainer').hover(function(ev){
                 clearInterval(timer);
