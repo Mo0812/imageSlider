@@ -8,6 +8,7 @@
 * slides a various number of your images in one frame all around
 * can add links to your images to use it also as a navigation tool for your frontpage
 * has different styles of navigation below - or none, how you'd like it?!
+* even can used as an image viewer for your gallery
 * can add a text and a shown link in every single slide if you want
 * works totaly on JavaScript (JQuery)
 * everything what's important got an option! So you can change: the speed of sliding, the animation times, the type of navigation, the reaction on links and additional texts
@@ -17,10 +18,11 @@
 Just take a look at the imageslider right [here](http://imageslider.mck-web.de).
 
 ### toDo List
-- [x] add a slice-style navigation
-- [ ] add a preview image navigation
-- [ ] add more sliding animations
-- [ ] ...
+- ~~add a slice-style navigation~~~
+- ~~add a button navigation for using as an image viewer in your gallery~~
+- add a preview image navigation
+- add more sliding animations
+- ...
 
 Theres still a lot to do. If you had found issues tell me please!
 
