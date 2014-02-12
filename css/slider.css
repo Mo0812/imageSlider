@@ -12,7 +12,6 @@
 }
 
 #slidingImage {
-    cursor:pointer;
     position:absolute;
 }
 
@@ -80,7 +79,47 @@
 }
 
 .button {
-    
+    position:absolute;
+    width:50px;
+    height:80px;
+    background:rgba(0,0,0,0.5);
+    cursor: pointer;
+    display:none;
+}
+
+.leftArrow {
+    margin:20px 0 0 5px;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 20px 34.6px 20px 0;
+    border-color: transparent rgba(256,256,256,0.85) transparent transparent;
+    line-height: 0px;
+    _border-color: #000000 #ffffff #000000 #000000;
+    _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+}
+
+.leftButton:hover .leftArrow {
+    border-color: transparent rgba(256,256,256,1) transparent transparent;
+
+}
+
+.rightArrow {
+    margin:20px 0 0 10px;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 20px 0 20px 34.6px;
+    border-color: transparent transparent transparent rgba(256,256,256,0.85);
+    line-height: 0px;
+    _border-color: #000000 #000000 #000000 #ffffff;
+    _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+}
+
+
+.rightButton:hover .rightArrow {
+    border-color: transparent transparent transparent rgba(256,256,256,1);
+
 }
 
 .active {

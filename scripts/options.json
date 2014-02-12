@@ -10,7 +10,7 @@ options=
     "infoTextEnabled": true,        //displays the text under a picture, if something is set (true-false)
     "linkClickEnabled": false,      //allows that a click on the picture opens the actual link (true-false)
     "linkTotalEnabled": true,       //shows the link under the text in the infobox. Is affected by infoTextEnabled (true-false)
-    "navigationType": "slice",      //sets the type of the navigation (bubble-slides)
+    "navigationType": "button",      //sets the type of the navigation (bubble-slice-button)
     "overallMode"   : "normal",     //sets the mode of imageSlider (normal-background)
     "autoResize"    : true          //
 }
