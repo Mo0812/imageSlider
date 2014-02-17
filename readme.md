@@ -122,4 +122,4 @@ As you see there are three options possible in each `{}`-Bracket.
 * __"link"__: Adds a link to the description (if it's enabled). If you have switched it on, it also follows the link by clickling the image. _optional_
 
 ###options.json
-In __options.json__ you can change general options like fading time, or animation delay. Just take a look in the file, it's all commended.
+In __options.json__ you can change general options like fading time, or animation delay. Just take a look in the file, it's all commented.
