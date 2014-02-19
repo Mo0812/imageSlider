@@ -11,6 +11,7 @@ options=
     "linkClickEnabled": false,      //allows that a click on the picture opens the actual link (true-false)
     "linkTotalEnabled": true,       //shows the link under the text in the infobox. Is affected by infoTextEnabled (true-false)
     "navigationType": "modernBubble",      //sets the type of the navigation (bubble-slice-button)
-    "overallMode"   : "normal",     //sets the mode of imageSlider (normal-background)
-    "autoResize"    : true          //
+    "colorTheme"    : "white",      //sets the color theme for the navigation (black-white)
+    "overallMode"   : "normal"     //sets the mode of imageSlider (normal-background[not stable])
+   
 }

@@ -55,10 +55,10 @@ if(options.overallMode!=null)
 else
     overallMode="normal";
 
-if(options.autoResize!=null)
-    var autoResize=options.autoResize;
+if(options.colorTheme!=null)
+    var colorTheme=options.colorTheme;
 else
-    autoResize=false;
+    colorTheme="white";
 
 var ratio=imgx/imgy
 
@@ -143,7 +143,7 @@ function captureImage(el,fnCallback) {
     ely=el.height();
     var elratio=elx/ely;
 
-    if(ratio<=elratio && elratio>=1) {
+    if(ratio<=elratio && elratio>=1) { //Bild breit - Bild breiter als Container
         el.css("width","");
         el.css("height",imgy);
 
@@ -151,13 +151,21 @@ function captureImage(el,fnCallback) {
         var diffy=0;
         el.css("margin-top",diffy);
         el.css("margin-left","-"+diffx);
-    } else if(ratio>elratio && elratio>=1) {
+    } else if(ratio>elratio && elratio>=1) { //Bild breit - Bild höher als Container 
         el.css("width",imgx);
         el.css("height","");
 
         diffx=0;
         diffy=(el.height()-imgy)/2;
         el.css("margin-top","-"+diffy);
+        el.css("margin-left",diffx);
+    } else if(elratio<1) { //Bild hoch - Bild breiter als Container
+        el.css("width","");
+        el.css("height",imgy);
+        
+        diffx=(imgx-el.width())/2;
+        diffy=0;
+        el.css("margin-top",diffy);
         el.css("margin-left",diffx);
     }
     if(fnCallback)
@@ -256,6 +264,9 @@ function initializeMenu() {
         }
         else if(navigationType=="bubble" || navigationType=="modernBubble") {
             $("#navigation").css("width",arrLen*30+"px");
+            if(colorTheme=="black")
+                $(".menu").addClass("black");
+            
         }
         else if(navigationType=="button") {
             $("#navigation").hide();
