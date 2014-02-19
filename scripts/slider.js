@@ -60,7 +60,7 @@ if(options.colorTheme!=null)
 else
     colorTheme="white";
 
-var ratio=imgx/imgy
+var ratio=imgx/imgy;
 
 function changeLogo() {
     var el=$("#slidingImage");
@@ -138,35 +138,66 @@ function lastLogo() {
 function captureImage(el,fnCallback) {
     var elx=0;
     var ely=0;
-    
-    elx=el.width();
-    ely=el.height();
-    var elratio=elx/ely;
 
-    if(ratio<=elratio && elratio>=1) { //Bild breit - Bild breiter als Container
-        el.css("width","");
-        el.css("height",imgy);
-
-        var diffx=(el.width()-imgx)/2;
-        var diffy=0;
-        el.css("margin-top",diffy);
-        el.css("margin-left","-"+diffx);
-    } else if(ratio>elratio && elratio>=1) { //Bild breit - Bild höher als Container 
-        el.css("width",imgx);
-        el.css("height","");
-
-        diffx=0;
-        diffy=(el.height()-imgy)/2;
-        el.css("margin-top","-"+diffy);
-        el.css("margin-left",diffx);
-    } else if(elratio<1) { //Bild hoch - Bild breiter als Container
-        el.css("width","");
-        el.css("height",imgy);
+    if(ratio>=1) {
+        elx=el.width();
+        ely=el.height();
+        var elratio=elx/ely;
         
-        diffx=(imgx-el.width())/2;
-        diffy=0;
-        el.css("margin-top",diffy);
-        el.css("margin-left",diffx);
+        if(ratio<=elratio && elratio>=1) { //Bild breit - Bild breiter als Container
+            el.css("width","");
+            el.css("height",imgy);
+
+            var diffx=(el.width()-imgx)/2;
+            var diffy=0;
+            el.css("margin-top",diffy);
+            el.css("margin-left","-"+diffx);
+        } else if(ratio>elratio && elratio>=1) { //Bild breit - Bild höher als Container 
+            el.css("width",imgx);
+            el.css("height","");
+
+            diffx=0;
+            diffy=(el.height()-imgy)/2;
+            el.css("margin-top","-"+diffy);
+            el.css("margin-left",diffx);
+        } else if(elratio<1) { //Bild hoch
+            el.css("width","");
+            el.css("height",imgy);
+
+            diffx=(imgx-el.width())/2;
+            diffy=0;
+            el.css("margin-top",diffy);
+            el.css("margin-left",diffx);
+        }
+    } else {
+        elx=el.width();
+        ely=el.height();
+        var elratio=ely/elx;
+        if(ratio<=elratio && elratio>=1) { //Bild hoch - Bild breiter als Container
+            el.css("width",imgx);
+            el.css("height","");
+
+            var diffx=0;
+            var diffy=(el.height()-imgy)/2;;
+            el.css("margin-top","-"+diffy);
+            el.css("margin-left",diffx);
+        } else if(ratio>elratio && elratio>=1) { //Bild breit - Bild höher als Container 
+            el.css("width","");
+            el.css("height",imgy);
+
+            diffx=(el.width()-imgx)/2;;
+            diffy=0;
+            el.css("margin-top",diffy);
+            el.css("margin-left","-"+diffx);
+        } else if(elratio<1) { //Bild breit
+            el.css("width",imgx);
+            el.css("height","");
+
+            diffx=0;
+            diffy=(imgy-el.height())/2;
+            el.css("margin-top",diffy);
+            el.css("margin-left",diffx);
+        }
     }
     if(fnCallback)
         fnCallback();
