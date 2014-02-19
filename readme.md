@@ -122,4 +122,24 @@ As you see there are three options possible in each `{}`-Bracket.
 * __"link"__: Adds a link to the description (if it's enabled). If you have switched it on, it also follows the link by clickling the image. _optional_
 
 ###options.json
-In __options.json__ you can change general options like fading time, or animation delay. Just take a look in the file, it's all commented.
+In __options.json__ you can change general options like fading time, or animation delay. Just take a look in the file:
+
+```javascript
+options=
+{
+    "imgx": 690,                        //width of the Imageslider
+    "imgy": 517,                        //height of the Imageslider
+    "delay": 2000,                      //duration for a image to be displayed
+    "fadeInTime": 500,                  //duration of the animation at the beginning
+    "fadeInAnimation": "",              //no function
+    "fadeOutTime": 500,                 //duration of the animation at the end
+    "fadeOutAnimation": "",             //no function
+    "infoTextEnabled": true,            //displays the text under a picture, if something is set (true-false)
+    "linkClickEnabled": false,          //allows that a click on the picture opens the actual link (true-false)
+    "linkTotalEnabled": true,           //shows the link under the text in the infobox. Is affected by infoTextEnabled (true-false)
+    "navigationType": "modernBubble",   //sets the type of the navigation (bubble-slice-button)
+    "colorTheme"    : "white",          //sets the color theme for the navigation (black-white)
+    "overallMode"   : "normal"          //sets the mode of imageSlider (normal-background[not stable])
+   
+}
+````
